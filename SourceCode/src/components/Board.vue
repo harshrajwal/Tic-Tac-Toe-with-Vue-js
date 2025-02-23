@@ -2,7 +2,7 @@
 
 <template>
     <div class="container">
-        <h1 v-if="winner" class="displayPlayer">Player {{ winner }} wins !</h1>
+        <h1 v-if="winner" class="winner">Player {{ winner }} wins !</h1>
         <h1 v-else-if="draw">Game Draw</h1>
         <h1 v-else class="displayPlayer">Player {{ currentPlayer }}'s turn</h1>
         <div class="board">
@@ -22,8 +22,8 @@
 }
 
 .container{
-    display: flex
-;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 500px;
@@ -31,10 +31,13 @@
 }
 
 .displayPlayer{
-    color: green;
     width: auto;
     flex-basis: 100%;
     text-align: center;
+}
+
+.winner{
+    color: green;
 }
 </style>
 

@@ -18,12 +18,6 @@
 <script>
 export default{
 props: ['value']
-// emits: ['cellClick'],
-// methods:{
-//     handleClick(){
-//         this.$emit('cellClick');
-//     }
-// }
 }
 
 </script>
