@@ -59,8 +59,8 @@ methods:{
         {
             console.log("makeMove called");
             this.board[cellIndex] = this.currentPlayer;             //set cell value
-            this.checkWinner();
-            console.log("check draw: "+this.checkDraw());
+            this.checkWinner();                                     //check currentplayer is winner or not
+            this.checkDraw();                                       // check game is draw or not
             this.currentPlayer = this.currentPlayer=="X"?"O":"X";   // switch player
         }
     },
@@ -84,27 +84,14 @@ methods:{
 
     },
     checkDraw(){
-        // this.board.forEach((item, index)=>{
-        //     if(item == null){
-        //         this.draw= false;
-        //         return this.draw;
-        //     }
-        //     else if(item!=null && index==this.board.length-1)
-        //     {
-        //         this.draw= true;
-        //     }
-        // });
-        // return this.draw;
-        //this.draw = this.board.find((item)=>item!=null);
-        console.log("draw:" +this.draw);
-        console.log("board:"+ this.board.length);
-        return this.draw;
+        this.draw = this.board.every((cell)=> cell!=null) && !this.winner;
     },
 
     resetGame(){
         this.board.fill(null);
         this.winner = null;
         this.currentPlayer = "X";
+        this.draw = false;
     }
 }
 }
