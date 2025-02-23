@@ -6,7 +6,7 @@
         <h1 v-else-if="draw">Game Draw</h1>
         <h1 v-else class="displayPlayer">Player {{ currentPlayer }}'s turn</h1>
         <div class="board">
-            <Cell v-for="(cell, index) in board" :key="index" :value="cell" @Click="makeMove(index)"/>
+            <Cell v-for="(cell, index) in board" :key="index"  :value="cell" @Click="makeMove(index)"/>
         </div>
         <button @click="resetGame">Reset Game</button>
     </div>
@@ -28,6 +28,7 @@
     align-items: center;
     width: 500px;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .displayPlayer{
