@@ -6,9 +6,9 @@
         <h1 v-else-if="draw">Game Draw</h1>
         <h1 v-else class="displayPlayer">Player {{ currentPlayer }}'s turn</h1>
         <div class="board">
-            <Cell v-for="(cell, index) in board" :key="index"  :value="cell" @Click="makeMove(index)"/>
+            <Cell v-for="(cell, index) in board" :key="index"  :value="cell" @Click="playMove(index)"/>
         </div>
-        <button @click="resetGame">Reset Game</button>
+        <button @click="resetGame">Restart Game</button>
     </div>
 </template>
 
@@ -58,10 +58,10 @@ components:{
     Cell
 },
 methods:{
-    makeMove(cellIndex){
+    playMove(cellIndex){
         if(!this.board[cellIndex] && !this.winner) //If the cell is empty
         {
-            console.log("makeMove called");
+            console.log("playMove called");
             this.board[cellIndex] = this.currentPlayer;             //set cell value
             this.checkWinner();                                     //check currentplayer is winner or not
             this.checkDraw();                                       // check game is draw or not
