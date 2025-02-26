@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button class="cell">{{ value }}</button>
+        <button class="cell" v-bind:class="{winnerCell: winnerIndex}">{{ value }}</button>
     </div>
 </template>
 
@@ -13,11 +13,15 @@
     font-size: 3rem;
     color: darkorchid;
 }
+
+.winnerCell{
+    background-color: greenyellow;
+}
 </style>
 
 <script>
 export default{
-props: ['value']
+props: ['value', 'winnerIndex']
 }
 
 </script>

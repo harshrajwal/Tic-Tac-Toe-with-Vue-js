@@ -6,7 +6,8 @@
         <h1 v-else-if="draw">Game Draw</h1>
         <h1 v-else class="displayPlayer">Player {{ currentPlayer }}'s turn</h1>
         <div class="board">
-            <Cell v-for="(cell, index) in board" :key="index"  :value="cell" @Click="playMove(index)"/>
+            <Cell v-for="(cell, index) in board" :key="index"  :value="cell" 
+            :winnerIndex="winningCell.includes(index)" @Click="playMove(index)"/>
         </div>
         <button @click="resetGame">Restart Game</button>
     </div>
@@ -51,7 +52,8 @@ export default{
     return {board: Array(9).fill(null),
         currentPlayer: "X",
         winner: null,
-        draw: false
+        draw: false,
+        winningCell: []
     }
 },
 components:{
@@ -81,6 +83,7 @@ methods:{
             if(this.board[cellIndex1] && this.board[cellIndex1]==this.board[cellIndex2]
                 && this.board[cellIndex2]==this.board[cellIndex3]
             ){
+                this.winningCell = pattern;
                 this.winner=this.currentPlayer;
                 console.log("winner: "+this.winner);
             }
@@ -96,6 +99,7 @@ methods:{
         this.winner = null;
         this.currentPlayer = "X";
         this.draw = false;
+        this.winningCell = [];
     }
 }
 }
