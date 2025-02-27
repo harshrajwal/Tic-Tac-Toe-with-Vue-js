@@ -1,23 +1,13 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+<script>
 import Board from './components/Board.vue'
 
-components:{
-  Board
+export default{
+  components:{Board}  
 }
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="Tic-Tac-Toe" />
-    </div>
-  </header>
-
   <main>
-    <!-- <TheWelcome /> -->
      <Board />
   </main>
 </template>
